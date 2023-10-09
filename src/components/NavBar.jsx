@@ -1,10 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { BurguerButton } from "./BurguerButton";
 
 import styled from "styled-components";
 
 export const NavBar = () => {
+  const [clicked, setClicked] = useState(false);
+  const handleClick = () => {
+    setClicked(!clicked);
+  };
   return (
     <>
       <NavContainer>
@@ -14,10 +18,16 @@ export const NavBar = () => {
           <a href="/about">About</a>
           <a href="/*">Error</a>
         </div> */}
-        <div>
-          <NavLink to={"/"}>Home</NavLink>
-          <NavLink to={"/about"}>About</NavLink>
-          <NavLink to={"/*"}>Error</NavLink>
+        <div className={`links ${clicked ? "active" : ""}`}>
+          <NavLink onClick={handleClick} to={"/"}>
+            Home
+          </NavLink>
+          <NavLink onClick={handleClick} to={"/about"}>
+            About
+          </NavLink>
+          <NavLink onClick={handleClick} to={"/*"}>
+            Horror
+          </NavLink>
         </div>
         <div className="burguer">
           <BurguerButton />

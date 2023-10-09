@@ -1,13 +1,12 @@
 import React from "react";
 import styled from "styled-components";
 
-export const BurguerButton = () => {
+export const BurguerButton = (props) => {
   return (
     <Burguer>
       <div
-        className="icon nav-icon-5"
-        /* onClick={props.handleClick} 
-        className={`icon nav-icon-5 ${props.clicked ? "open" : ""}`} */
+        onClick={props.handleClick}
+        className={`icon nav-icon-5 ${props.clicked ? "open" : ""}`}
       >
         <span></span>
         <span></span>
