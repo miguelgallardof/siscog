@@ -40,19 +40,19 @@ export default function Navbar() {
 
 const NavContainer = styled.nav`
   h2{
-    color: black;
+    color: white;
     font-weight: 400;
     span{
       font-weight: bold;
     }
   }
-  padding: 0.5rem;
-  background-color: green;
+  padding: .4rem;
+  background-color: #333;
   display: flex;
   align-items: center;
   justify-content: space-between;
   a{
-    color: green;
+    color: white;
     text-decoration: none;
     margin-right: 1rem;
   }
@@ -66,7 +66,7 @@ const NavContainer = styled.nav`
     text-align: center;
     transition: all .5s ease;
     a{
-      color: yellow;
+      color: white;
       font-size: 2rem;
       display: block;
     }
@@ -94,10 +94,10 @@ const NavContainer = styled.nav`
     a{
       font-size: 2rem;
       margin-top: 1rem;
-      color: red;
+      color: white;
     }
   }
-  .burger{
+  .burguer{
     @media(min-width: 768px){
       display: none;
     }
