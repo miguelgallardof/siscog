@@ -1,61 +1,62 @@
-import React, { useState } from "react";
+import React, { useState } from 'react'
 import { NavLink } from "react-router-dom";
-import { BurguerButton } from "./BurguerButton";
+import BurgerButton from './BurgerButton'
 
-import styled from "styled-components";
+import styled from 'styled-components'
 
-export const NavBar = () => {
-  const [clicked, setClicked] = useState(false);
+export default function Navbar() {
+
+  const [clicked, setClicked] = useState(false)
   const handleClick = () => {
-    setClicked(!clicked);
-  };
+    //cuando esta true lo pasa a false y vice versa
+    setClicked(!clicked)
+  }
   return (
     <>
       <NavContainer>
-        <h2>NavBar</h2>
-        {/* <div>
-          <a href="/">Home</a>
-          <a href="/about">About</a>
-          <a href="/*">Error</a>
-        </div> */}
-        <div className={`links ${clicked ? "active" : ""}`}>
-          <NavLink onClick={handleClick} to={"/"}>
-            Home
+        <h2>Navbar <span>Responsive</span></h2>
+        <div className={`links ${clicked ? 'active' : ''}`}>
+          <a onClick={handleClick} href="/">Home</a>
+          <a onClick={handleClick} href="/About">About</a>
+          
+          {/* <NavLink to={"/"} className={""}>
+            <a href='javascript:void(0);'>Home</a>
           </NavLink>
-          <NavLink onClick={handleClick} to={"/about"}>
+          <NavLink to={"/about"}>
             About
           </NavLink>
-          <NavLink onClick={handleClick} to={"/*"}>
+          <NavLink to={"/*"}>
             Horror
-          </NavLink>
+          </NavLink> */}
         </div>
-        <div className="burguer">
-          <BurguerButton />
+        <div className='burger'>
+          <BurgerButton clicked={clicked} handleClick={handleClick} />
         </div>
+        <BgDiv className={`initial ${clicked ? ' active' : ''}`}></BgDiv>
       </NavContainer>
     </>
-  );
-};
+  )
+}
 
 const NavContainer = styled.nav`
-  h2 {
-    color: yellow;
+  h2{
+    color: black;
     font-weight: 400;
-    span {
+    span{
       font-weight: bold;
     }
   }
   padding: 0.5rem;
-  background-color: #333;
+  background-color: green;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  a {
-    color: white;
+  a{
+    color: green;
     text-decoration: none;
     margin-right: 1rem;
   }
-  .links {
+  .links{
     position: absolute;
     top: -700px;
     left: -2000px;
@@ -63,16 +64,16 @@ const NavContainer = styled.nav`
     margin-left: auto;
     margin-right: auto;
     text-align: center;
-    transition: all 0.5s ease;
-    a {
-      color: white;
+    transition: all .5s ease;
+    a{
+      color: yellow;
       font-size: 2rem;
       display: block;
     }
-    @media (min-width: 768px) {
+    @media(min-width: 768px){
       position: initial;
       margin: 0;
-      a {
+      a{
         font-size: 1rem;
         color: white;
         display: inline;
@@ -80,7 +81,7 @@ const NavContainer = styled.nav`
       display: block;
     }
   }
-  .links.active {
+  .links.active{
     width: 100%;
     display: block;
     position: absolute;
@@ -90,20 +91,20 @@ const NavContainer = styled.nav`
     left: 0;
     right: 0;
     text-align: center;
-    a {
+    a{
       font-size: 2rem;
       margin-top: 1rem;
-      color: white;
+      color: red;
     }
   }
-  .burguer {
-    @media (min-width: 768px) {
+  .burger{
+    @media(min-width: 768px){
       display: none;
     }
   }
-`;
+`
 
-/* const BgDiv = styled.div`
+const BgDiv = styled.div`
   background-color: #222;
   position: absolute;
   top: -1000px;
@@ -111,13 +112,13 @@ const NavContainer = styled.nav`
   width: 100%;
   height: 100%;
   z-index: -1;
-  transition: all 0.6s ease;
-
-  &.active {
+  transition: all .6s ease ;
+  
+  &.active{
     border-radius: 0 0 80% 0;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
   }
-`; */
+`
