@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
 import { NavLink } from "react-router-dom";
-import BurgerButton from './BurgerButton'
 
 import styled from 'styled-components'
+import BurgerButton from './BurgerButton';
 
-export default function Navbar() {
-
+export default function NavBar() {
+  /* export const Navbar = () => { */
   const [clicked, setClicked] = useState(false)
   const handleClick = () => {
     //cuando esta true lo pasa a false y vice versa
@@ -16,21 +16,22 @@ export default function Navbar() {
       <NavContainer>
         <h2>Navbar <span>Responsive</span></h2>
         <div className={`links ${clicked ? 'active' : ''}`}>
-          <a onClick={handleClick} href="/">Home</a>
-          <a onClick={handleClick} href="/About">About</a>
+          {/* <a onClick={handleClick} href="/">Home</a>
+          <a onClick={handleClick} href="/About">About</a> */}
           
-          {/* <NavLink to={"/"} className={""}>
-            <a href='javascript:void(0);'>Home</a>
+          <NavLink to={"/"} className={""}>
+            <a onClick={handleClick} to={"/"}>Home</a>
           </NavLink>
-          <NavLink to={"/about"}>
+          <NavLink onClick={handleClick} to={"/about"}>
             About
           </NavLink>
           <NavLink to={"/*"}>
             Horror
-          </NavLink> */}
+          </NavLink>
         </div>
         <div className='burger'>
-          <BurgerButton clicked={clicked} handleClick={handleClick} />
+          {/* <BurgerButton clicked={clicked} handleClick={handleClick} /> */}
+          <BurgerButton clicked={clicked} handleClick={handleClick}/>
         </div>
         <BgDiv className={`initial ${clicked ? ' active' : ''}`}></BgDiv>
       </NavContainer>
@@ -97,7 +98,7 @@ const NavContainer = styled.nav`
       color: white;
     }
   }
-  .burguer{
+  .burger{
     @media(min-width: 768px){
       display: none;
     }

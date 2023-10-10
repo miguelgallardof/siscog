@@ -1,4 +1,4 @@
-//import { useState } from 'react'
+import React from "react";
 import { Routes, Route } from "react-router-dom";
 import { Home, About } from "./pages";
 import NavBar from "./components/NavBar";
