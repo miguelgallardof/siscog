@@ -1,11 +1,10 @@
 import React, { useState } from 'react'
 import { NavLink } from "react-router-dom";
+import { BurgerButton } from './BurgerButton'
 
 import styled from 'styled-components'
-import BurgerButton from './BurgerButton';
 
-export default function NavBar() {
-  /* export const Navbar = () => { */
+export const NavBar = () => {
   const [clicked, setClicked] = useState(false)
   const handleClick = () => {
     //cuando esta true lo pasa a false y vice versa
@@ -16,13 +15,12 @@ export default function NavBar() {
       <NavContainer>
         <h2>Navbar <span>Responsive</span></h2>
         <div className={`links ${clicked ? 'active' : ''}`}>
-          {/* <a onClick={handleClick} href="/">Home</a>
-          <a onClick={handleClick} href="/About">About</a> */}
-          
-          <NavLink to={"/"} className={""}>
-            <a onClick={handleClick} to={"/"}>Home</a>
+          {/* <a className='link' onClick={handleClick} href="/">Home</a>
+          <a className='link' onClick={handleClick} href="/About">About</a> */}
+          <NavLink to={"/"} >
+            <a onClick={handleClick} href="/">Home</a>
           </NavLink>
-          <NavLink onClick={handleClick} to={"/about"}>
+          <NavLink isActive='true' className='link' onClick={handleClick} to={"/about"}>
             About
           </NavLink>
           <NavLink to={"/*"}>
@@ -30,16 +28,26 @@ export default function NavBar() {
           </NavLink>
         </div>
         <div className='burger'>
-          {/* <BurgerButton clicked={clicked} handleClick={handleClick} /> */}
-          <BurgerButton clicked={clicked} handleClick={handleClick}/>
+          <BurgerButton clicked={clicked} handleClick={handleClick} />
         </div>
-        <BgDiv className={`initial ${clicked ? ' active' : ''}`}></BgDiv>
       </NavContainer>
+      <Bg className={`initial ${clicked ? ' active' : ''}`}>
+      <h3>Desarrollado por gales</h3>
+      </Bg>
+      <Content className={`initial ${clicked ? ' active' : ''}`}>
+        <h1>Logo</h1>
+      </Content>
     </>
   )
 }
 
 const NavContainer = styled.nav`
+  padding: .4rem;
+  background-color: #333;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 100;
   h2{
     color: white;
     font-weight: 400;
@@ -47,13 +55,8 @@ const NavContainer = styled.nav`
       font-weight: bold;
     }
   }
-  padding: .4rem;
-  background-color: #333;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
   a{
-    color: white;
+    color: cyan;
     text-decoration: none;
     margin-right: 1rem;
   }
@@ -65,9 +68,10 @@ const NavContainer = styled.nav`
     margin-left: auto;
     margin-right: auto;
     text-align: center;
-    transition: all .5s ease;
-    a{
-      color: white;
+    transition: all .75s ease;
+    z-index: 2;
+    a{ //Cuando salen
+      color: red;
       font-size: 2rem;
       display: block;
     }
@@ -76,7 +80,7 @@ const NavContainer = styled.nav`
       margin: 0;
       a{
         font-size: 1rem;
-        color: white;
+        color: var(--main-color);
         display: inline;
       }
       display: block;
@@ -95,28 +99,54 @@ const NavContainer = styled.nav`
     a{
       font-size: 2rem;
       margin-top: 1rem;
-      color: white;
+      color: yellow;
     }
   }
   .burger{
+    z-index: 2;
     @media(min-width: 768px){
       display: none;
     }
   }
 `
 
-const BgDiv = styled.div`
-  background-color: #222;
+const Bg = styled.div`
+  background-color: var(--shadow-color);
+  opacity: 0.5;
+  position: absolute;
+  left: -1000px;
+  z-index: 1;
+  transition: all .25s ease ;
+  
+  &.active{
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  h3 {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    z-index: 2;
+    padding: 1rem;
+    color: white;
+    opacity: 0.25;
+  }
+`
+const Content = styled.div`
+  background-color: var(--second-color);
   position: absolute;
   top: -1000px;
   left: -1000px;
   width: 100%;
   height: 100%;
-  z-index: -1;
-  transition: all .6s ease ;
+  z-index: 1;
+  transition: all .75s ease ;
   
   &.active{
-    border-radius: 0 0 80% 0;
+    border-radius: 0 0 100% 0;
     top: 0;
     left: 0;
     width: 100%;

@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-export default function BurgerButton(props) {
+export const BurgerButton = (props) => {
   return (
     <Burger>
       <div  onClick={props.handleClick} 
@@ -16,7 +16,6 @@ export default function BurgerButton(props) {
 }
 
 const Burger = styled.div`
-  /* nav-icon-5 */
 .nav-icon-5{
   width: 35px;
   height: 30px;

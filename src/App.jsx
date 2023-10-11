@@ -1,8 +1,9 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 import { Home, About } from "./pages";
-import NavBar from "./components/NavBar";
+import { NavBar } from "./components/NavBar";
 
+import './index.scss'
 
 function App() {
   return (
