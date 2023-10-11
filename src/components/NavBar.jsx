@@ -42,14 +42,17 @@ export const NavBar = () => {
 }
 
 const NavContainer = styled.nav`
-  padding: .4rem;
-  background-color: #333;
+  padding: 1rem 1.5rem;
+  margin: 1rem;
+  border-radius: 1rem;
+  background-color: rgba(255, 255, 255, 0.5);
+  /* opacity: 0.85; */
   display: flex;
   align-items: center;
   justify-content: space-between;
   z-index: 100;
   h2{
-    color: white;
+    color: var(--main-color);
     font-weight: 400;
     span{
       font-weight: bold;
@@ -58,7 +61,7 @@ const NavContainer = styled.nav`
   a{
     color: cyan;
     text-decoration: none;
-    margin-right: 1rem;
+    margin-left: 1rem;
   }
   .links{
     position: absolute;
