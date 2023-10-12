@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import { NavLink } from "react-router-dom";
 import { BurgerButton } from './BurgerButton'
+//import LogoNegative from '../assets/gales/logo-negative.svg'
+import LogoPositive from '../assets/gales/logo-positive.svg'
 
 import styled from 'styled-components'
 
@@ -32,7 +34,8 @@ export const NavBar = () => {
         </div>
       </NavContainer>
       <Bg className={`initial ${clicked ? ' active' : ''}`}>
-      <h3>Desarrollado por gales</h3>
+      {/* <h3>Desarrollado por <img src={LogoNegative} alt='gales logo'/></h3> */}
+      <h3>Desarrollado por <img src={LogoPositive} alt='gales logo'/></h3>
       </Bg>
       <Content className={`initial ${clicked ? ' active' : ''}`}>
         <h1>Logo</h1>
