@@ -1,6 +1,12 @@
-h1 {
-  color: var(--main-color)
+.content {
+  padding-top: 6rem;
+  h1 {
+    color: var(--main-color);
+    margin-top: 1rem;
+  }
+  p {
+    color: var(--text-color)
+  }
 }
-p {
-  color: var(--text-color)
-}
+
+
