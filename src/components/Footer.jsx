@@ -9,7 +9,7 @@ export const Footer = () => {
     <FooterContainer>
       <footer>
         <p>
-        Copyright &copy; {year} <span>SISCOG</span></p> <p>Hecho con amor por <a href='https://gales.pe' rel='noreferrer' target='_blank'><img src={GalesPositive} alt='gales.pe' /></a></p>
+        Copyright &copy; {year} <span>SISCOG</span></p> <p>Hecho con ❤️ por <a href='https://gales.pe' rel='noreferrer' target='_blank'><img src={GalesPositive} alt='gales.pe' /></a></p>
       </footer>
     </FooterContainer>
   )
